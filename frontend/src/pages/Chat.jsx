@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://artist-booking-app-h66r.onrender.com");
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
@@ -38,7 +38,7 @@ export default function Chat() {
 
   async function fetchMessages() {
     const token = localStorage.getItem("token");
-    const res = await fetch("http://localhost:5000/api/messages/" + bookingId, {
+    const res = await fetch("https://artist-booking-app-h66r.onrender.com/api/messages/" + bookingId, {
       headers: { Authorization: "Bearer " + token }
     });
     const data = await res.json();
@@ -51,7 +51,7 @@ export default function Chat() {
     if (!newMessage.trim()) return;
 
     const token = localStorage.getItem("token");
-    const res = await fetch("http://localhost:5000/api/messages", {
+    const res = await fetch("https://artist-booking-app-h66r.onrender.com/api/messages", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

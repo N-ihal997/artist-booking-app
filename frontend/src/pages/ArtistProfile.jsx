@@ -21,7 +21,7 @@ export default function ArtistProfile() {
 
   async function fetchArtist() {
     const token = localStorage.getItem("token");
-    const res = await fetch("http://localhost:5000/api/artists/" + artistId, {
+    const res = await fetch("https://artist-booking-app-h66r.onrender.com/api/artists/" + artistId, {
       headers: { Authorization: "Bearer " + token }
     });
     const data = await res.json();
@@ -36,7 +36,7 @@ export default function ArtistProfile() {
       return;
     }
     const token = localStorage.getItem("token");
-    const res = await fetch("http://localhost:5000/api/bookings", {
+    const res = await fetch("https://artist-booking-app-h66r.onrender.com/api/bookings", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

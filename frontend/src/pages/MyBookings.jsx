@@ -10,7 +10,7 @@ export default function MyBookings() {
 
   async function fetchBookings() {
     const token = localStorage.getItem("token");
-    const res = await fetch("http://localhost:5000/api/payments/my-bookings", {
+    const res = await fetch("https://artist-booking-app-h66r.onrender.com/api/payments/my-bookings", {
       headers: { Authorization: "Bearer " + token }
     });
     const data = await res.json();

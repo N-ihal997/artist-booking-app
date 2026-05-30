@@ -19,7 +19,7 @@ function CheckoutForm({ bookingId, amount, artistName }) {
 
   async function createPaymentIntent() {
     const token = localStorage.getItem("token");
-    const res = await fetch("http://localhost:5000/api/payments/create-payment-intent", {
+    const res = await fetch("https://artist-booking-app-h66r.onrender.com/api/payments/create-payment-intent", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -53,7 +53,7 @@ function CheckoutForm({ bookingId, amount, artistName }) {
       setLoading(false);
     } else if (result.paymentIntent.status === "succeeded") {
       const token = localStorage.getItem("token");
-      await fetch("http://localhost:5000/api/payments/confirm", {
+      await fetch("https://artist-booking-app-h66r.onrender.com/api/payments/confirm", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

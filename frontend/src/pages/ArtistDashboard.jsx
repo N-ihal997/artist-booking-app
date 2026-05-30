@@ -16,8 +16,8 @@ export default function ArtistDashboard() {
     const headers = { Authorization: "Bearer " + token };
 
     const [profileRes, bookingsRes] = await Promise.all([
-      fetch("http://localhost:5000/api/artists/profile/me", { headers }),
-      fetch("http://localhost:5000/api/bookings/requests", { headers })
+      fetch("https://artist-booking-app-h66r.onrender.com/api/artists/profile/me", { headers }),
+      fetch("https://artist-booking-app-h66r.onrender.com/api/bookings/requests", { headers })
     ]);
 
     const profileData = await profileRes.json();
@@ -31,7 +31,7 @@ export default function ArtistDashboard() {
   async function updateStatus(bookingId, status) {
     setUpdating(bookingId);
     const token = localStorage.getItem("token");
-    const res = await fetch("http://localhost:5000/api/bookings/" + bookingId + "/status", {
+    const res = await fetch("https://artist-booking-app-h66r.onrender.com/api/bookings/" + bookingId + "/status", {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

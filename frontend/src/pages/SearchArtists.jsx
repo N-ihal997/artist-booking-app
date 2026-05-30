@@ -24,7 +24,7 @@ export default function SearchArtists() {
 
   async function fetchArtists() {
     const token = localStorage.getItem("token");
-    const res = await fetch("http://localhost:5000/api/artists/all", {
+    const res = await fetch("https://artist-booking-app-h66r.onrender.com/api/artists/all", {
       headers: { Authorization: "Bearer " + token }
     });
     const data = await res.json();

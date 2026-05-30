@@ -13,7 +13,7 @@ export default function UploadMedia() {
 
   async function fetchProfile() {
     const token = localStorage.getItem("token");
-    const res = await fetch("http://localhost:5000/api/artists/profile/me", {
+    const res = await fetch("https://artist-booking-app-h66r.onrender.com/api/artists/profile/me", {
       headers: { Authorization: "Bearer " + token }
     });
     const data = await res.json();
@@ -32,7 +32,7 @@ export default function UploadMedia() {
     reader.onloadend = async () => {
       const base64 = reader.result;
       const token = localStorage.getItem("token");
-      const res = await fetch("http://localhost:5000/api/artists/profile/upload-photo", {
+      const res = await fetch("https://artist-booking-app-h66r.onrender.com/api/artists/profile/upload-photo", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -55,7 +55,7 @@ export default function UploadMedia() {
   async function handleAddVideo() {
     if (!videoUrl.trim()) return;
     const token = localStorage.getItem("token");
-    const res = await fetch("http://localhost:5000/api/artists/profile/add-video", {
+    const res = await fetch("https://artist-booking-app-h66r.onrender.com/api/artists/profile/add-video", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
